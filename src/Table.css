@@ -1,0 +1,64 @@
+.ui.table {
+  border-collapse: collapse !important;
+}
+
+.ui.celled.table tr {
+  border: 1px solid grey;
+}
+
+.ui.celled.table tr > th {
+  border: 1px solid grey;
+  background: gainsboro;
+}
+
+.ui.celled.table tr > td {
+  border: 1px solid grey;
+}
+
+.ui.celled.table tr > th.sortable {
+  cursor: pointer;
+}
+
+.ui.celled.table tr > th.sortable:hover {
+  background: #f0f0f0;
+}
+
+th.sortable:after {
+  font-family: 'Icons';
+  margin-left: 0.4em;
+  content: '\f0dc';
+}
+
+.ui.celled.table tr > th.sortable.sorted-asc {
+  background: #f0f0f0;
+}
+
+th.sortable.sorted-asc:after {
+  content: '\f0de';
+}
+
+.ui.celled.table tr > th.sortable.sorted-desc {
+  background: #f0f0f0;
+}
+
+th.sortable.sorted-desc:after {
+  content: '\f0dd';
+}
+
+th:not(.sorted-asc):not(.sorted-desc):after {
+  opacity: 0.5;
+}
+
+@media (min-width: 768px) {
+  .ui.table thead tr:first-child > th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+}
+
+@media (min-width: 768px) {
+  .ui.celled.table tr .numerical {
+    text-align: right;
+  }
+}
