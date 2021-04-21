@@ -11,7 +11,7 @@ export const App = () => {
   useEffect(() => {
     const getAPI = async () => {
       try {
-        const res = await fetch('https://swapi.dev/api/planets');
+        const res = await fetch('https://swapi.dev/api/planets/');
         if (!res.ok) {
           // could set status code and use that as part of error msg
           // right now error msg assumes the error is due to downtime

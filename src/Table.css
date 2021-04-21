@@ -49,13 +49,13 @@ th:not(.sorted-asc):not(.sorted-desc):after {
   opacity: 0.5;
 }
 
-@media (min-width: 768px) {
+/* Added functionality for sticky headers - causes issues on firefox with bordering in heading */
+/* @media (min-width: 768px) {
   .ui.table thead tr:first-child > th {
     position: sticky;
     top: 0;
-    z-index: 2;
   }
-}
+} */
 
 @media (min-width: 768px) {
   .ui.celled.table tr .numerical {
