@@ -63,14 +63,6 @@ export const SortablePlanetTable = ({ planetList }) => {
           >
             Planet Name
           </Table.HeaderCell>
-          <Table.HeaderCell>Climate</Table.HeaderCell>
-          <Table.HeaderCell
-            className={'numerical ' + getSortedDirectionClass(sortedState.column, RESIDENTS, sortedState.direction)}
-            onClick={() => handleOnClickSort(RESIDENTS)}
-          >
-            # of Residents
-          </Table.HeaderCell>
-          <Table.HeaderCell>Terrain</Table.HeaderCell>
           {/* Could show population in thousands to reduce the number of digits shown - would be better for non desktops */}
           <Table.HeaderCell
             className={'numerical ' + getSortedDirectionClass(sortedState.column, POPULATION, sortedState.direction)}
@@ -78,6 +70,14 @@ export const SortablePlanetTable = ({ planetList }) => {
           >
             Population
           </Table.HeaderCell>
+          <Table.HeaderCell
+            className={'numerical ' + getSortedDirectionClass(sortedState.column, RESIDENTS, sortedState.direction)}
+            onClick={() => handleOnClickSort(RESIDENTS)}
+          >
+            # of Residents
+          </Table.HeaderCell>
+          <Table.HeaderCell>Climate</Table.HeaderCell>
+          <Table.HeaderCell>Terrain</Table.HeaderCell>
           <Table.HeaderCell
             className={'numerical ' + getSortedDirectionClass(sortedState.column, SURFACE_AREA, sortedState.direction)}
             onClick={() => handleOnClickSort(SURFACE_AREA)}
@@ -96,12 +96,12 @@ export const SortablePlanetTable = ({ planetList }) => {
                   {isUnknown(planetData.name) ? '?' : planetData.name}
                 </a>
               </Table.Cell>
-              <Table.Cell>{isUnknown(planetData.sortedClimate) ? '?' : planetData.sortedClimate}</Table.Cell>
-              <Table.Cell className="numerical">{formatNumber(planetData.residents.length)}</Table.Cell>
-              <Table.Cell>{isUnknown(planetData.sortedTerrain) ? '?' : planetData.sortedTerrain}</Table.Cell>
               <Table.Cell className="numerical">
                 {isUnknown(planetData.population) ? '?' : formatNumber(planetData.population)}
               </Table.Cell>
+              <Table.Cell className="numerical">{formatNumber(planetData.residents.length)}</Table.Cell>
+              <Table.Cell>{isUnknown(planetData.sortedClimate) ? '?' : planetData.sortedClimate}</Table.Cell>
+              <Table.Cell>{isUnknown(planetData.sortedTerrain) ? '?' : planetData.sortedTerrain}</Table.Cell>
               <Table.Cell className="numerical">
                 {isUnknown(planetData.surfaceArea) ? '?' : formatNumber(planetData.surfaceArea)}
               </Table.Cell>
