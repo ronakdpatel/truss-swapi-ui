@@ -96,9 +96,9 @@ export const SortablePlanetTable = ({ planetList }) => {
                   {isUnknown(planetData.name) ? '?' : planetData.name}
                 </a>
               </Table.Cell>
-              <Table.Cell>{isUnknown(planetData.climate) ? '?' : planetData.climate}</Table.Cell>
+              <Table.Cell>{isUnknown(planetData.sortedClimate) ? '?' : planetData.sortedClimate}</Table.Cell>
               <Table.Cell className="numerical">{formatNumber(planetData.residents.length)}</Table.Cell>
-              <Table.Cell>{isUnknown(planetData.terrain) ? '?' : planetData.terrain}</Table.Cell>
+              <Table.Cell>{isUnknown(planetData.sortedTerrain) ? '?' : planetData.sortedTerrain}</Table.Cell>
               <Table.Cell className="numerical">
                 {isUnknown(planetData.population) ? '?' : formatNumber(planetData.population)}
               </Table.Cell>

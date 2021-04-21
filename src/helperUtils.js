@@ -84,3 +84,9 @@ export const calculateWaterSurfaceArea = (diameter, percentWater) => {
   const totalSurfaceArea = 4 * Math.PI * Math.pow(diameter / 2, 2);
   return Math.round(totalSurfaceArea * (percentWater / 100));
 };
+
+export const sortCommaSeparatedStrings = (string) => {
+  let arrayOfWords = string.split(', ');
+  arrayOfWords.sort(ignoreCaseStringCompare);
+  return arrayOfWords.join(', ');
+};

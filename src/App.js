@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { BusyIndicator } from './BusyIndicator';
 import { SortablePlanetTable } from './SortablePlanetTable';
 import { ErrorMsgBanner } from './ErrorMsgBanner';
-import { calculateWaterSurfaceArea, compareNames } from './helperUtils';
+import { calculateWaterSurfaceArea, compareNames, sortCommaSeparatedStrings } from './helperUtils';
 
 export const App = () => {
   const [state, setState] = useState({ data: null, loading: true });
@@ -21,7 +21,11 @@ export const App = () => {
         planetInfo.sort(compareNames);
         planetInfo.map((planetData) => {
           const surfaceArea = calculateWaterSurfaceArea(planetData.diameter, planetData.surface_water);
+          const sortedClimate = sortCommaSeparatedStrings(planetData.climate);
+          const sortedTerrain = sortCommaSeparatedStrings(planetData.terrain);
           planetData['surfaceArea'] = surfaceArea;
+          planetData['sortedClimate'] = sortedClimate;
+          planetData['sortedTerrain'] = sortedTerrain;
           return planetData;
         });
         setState({ data: planetInfo, loading: false });

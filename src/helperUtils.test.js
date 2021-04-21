@@ -4,7 +4,8 @@ import {
   ignoreCaseStringCompare,
   numberCompare,
   isUnknown,
-  calculateWaterSurfaceArea
+  calculateWaterSurfaceArea,
+  sortCommaSeparatedStrings
 } from './helperUtils';
 
 test('Formats digits', () => {
@@ -57,4 +58,15 @@ test('Calculates water surface area', () => {
   expect(calculateWaterSurfaceArea(0, 60)).toBe(0);
   expect(calculateWaterSurfaceArea(0, 'unknown')).toBe('unknown');
   expect(calculateWaterSurfaceArea('unknown', 10)).toBe('unknown');
+});
+
+test('Sorting comma separated strings', () => {
+  expect(sortCommaSeparatedStrings('scrublands, savanna, canyons, sinkholes')).toBe(
+    'canyons, savanna, scrublands, sinkholes'
+  );
+  expect(sortCommaSeparatedStrings('mountains, seas, grasslands, deserts')).toBe(
+    'deserts, grasslands, mountains, seas'
+  );
+  expect(sortCommaSeparatedStrings('unknown')).toBe('unknown');
+  expect(sortCommaSeparatedStrings('temperate')).toBe('temperate');
 });
